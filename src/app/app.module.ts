@@ -11,12 +11,14 @@ import { HeaderComponent } from './header/header.component';
 import { InfobarComponent } from './infobar/infobar.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import {MatDividerModule} from '@angular/material/divider';
+import { BookComponent } from './book/book.component';
 
 const routes: Routes = [
   {path: '', redirectTo: '/inicio', pathMatch: 'full'},
   {path: 'inicio', component: InicioComponent},
   {path: 'contacto', component: ContactComponent},
   {path: 'libros', component: LibrosComponent},
+  {path: 'book', component: BookComponent},
 ];
 
 @NgModule({
@@ -27,7 +29,8 @@ const routes: Routes = [
     ContactComponent,
     FooterComponent,
     HeaderComponent,
-    InfobarComponent
+    InfobarComponent,
+    BookComponent
   ],
   imports: [
     BrowserModule,
