@@ -12,6 +12,7 @@ import { InfobarComponent } from './infobar/infobar.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import {MatDividerModule} from '@angular/material/divider';
 import { BookComponent } from './book/book.component';
+import { CarritoComponent } from './carrito/carrito.component';
 
 const routes: Routes = [
   {path: '', redirectTo: '/inicio', pathMatch: 'full'},
@@ -19,6 +20,8 @@ const routes: Routes = [
   {path: 'contacto', component: ContactComponent},
   {path: 'libros', component: LibrosComponent},
   {path: 'book', component: BookComponent},
+  {path: 'carro', component: CarritoComponent}
+
 ];
 
 @NgModule({
@@ -30,7 +33,8 @@ const routes: Routes = [
     FooterComponent,
     HeaderComponent,
     InfobarComponent,
-    BookComponent
+    BookComponent,
+    CarritoComponent
   ],
   imports: [
     BrowserModule,
