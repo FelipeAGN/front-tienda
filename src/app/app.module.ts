@@ -23,6 +23,7 @@ import {ReactiveFormsModule} from '@angular/forms';
 import { FormsModule } from '@angular/forms';
 import {MatInputModule} from '@angular/material/input';
 import {CarritoComponent } from './carrito/carrito.component';
+import { ErrorComponent } from './error/error.component';
 
 const routes: Routes = [
   {path: '', redirectTo: '/inicio', pathMatch: 'full'},
@@ -30,7 +31,8 @@ const routes: Routes = [
   {path: 'contacto', component: ContactComponent},
   {path: 'libros', component: LibrosComponent},
   {path: 'book', component: BookComponent},
-  {path: 'carro', component: CarritoComponent}
+  {path: 'carro', component: CarritoComponent},
+  {path: '**', component: ErrorComponent}
 ];
 
 @NgModule({
@@ -45,7 +47,8 @@ const routes: Routes = [
     BookComponent,
     CarrouselComponent,
     AutoCompleteSearchComponent,
-    CarritoComponent
+    CarritoComponent,
+    ErrorComponent
   ],
   imports: [
     BrowserModule,

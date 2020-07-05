@@ -9,7 +9,13 @@ export class BookComponent implements OnInit {
 
   constructor() { }
 
+  public comentario = {
+    mensaje: null
+  }
   ngOnInit(): void {
   }
 
+  onSubmit(form){
+    console.log(this.comentario);
+  }
 }

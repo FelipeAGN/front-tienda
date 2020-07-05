@@ -48,4 +48,19 @@
             </div>
         </div>
     </div>
+    <h3>Contacto</h3>
+    <p>¡Hola, comenta qué te pareció!</p>
+    <div class="row">
+        <form class="col-md-5 mb-5" #comentForm="ngForm" (ngSubmit)="onSubmit(comentForm)">
+            <div class="form-group">
+                <label for="name">Comentario:</label>
+                <textarea type="text" name="content" class="form-control" rows="4" #content="ngModel"
+                    [(ngModel)]="comentario.mensaje" required></textarea>
+                <small *ngIf="!content.valid && content.touched" class="invalid-feedback d-block">
+                    Comentario invalido
+                </small>
+            </div>
+            <input type="submit" value="Enviar Comentario" class="btn btn-success" [disabled]="comentForm.invalid">
+        </form>
+    </div>
 </div>
