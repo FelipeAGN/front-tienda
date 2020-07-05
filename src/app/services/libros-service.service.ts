@@ -33,6 +33,11 @@ export class LibrosServiceService {
       map(response=>response as Libro[])
     )
   }
+  getLibroById(id: string):Observable<Libro[]>{
+    return this.http.get(this.anotherUrlEndpoint + 'books/' + id).pipe(
+      map(response=> response as Libro[])
+    )
+  }
 
   /*
   getLibroById(data){
