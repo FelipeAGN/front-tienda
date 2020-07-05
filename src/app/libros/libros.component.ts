@@ -17,6 +17,8 @@ export class LibrosComponent implements OnInit {
     private librosService: LibrosServiceService
   ) { }
 
+  filterBook = '';
+
   ngOnInit(): void {
     this.librosService.getLibros().subscribe(
       libros=>this.libros = libros

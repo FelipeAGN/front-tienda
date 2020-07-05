@@ -25,6 +25,7 @@ import { HeaderComponent } from './header/header.component';
 import { InfobarComponent } from './infobar/infobar.component';
 import {CarritoComponent } from './carrito/carrito.component';
 import { ErrorComponent } from './error/error.component';
+import { FilterPipe } from './pipes/filter.pipe';
 
 const routes: Routes = [
   {path: '', redirectTo: '/inicio', pathMatch: 'full'},
@@ -49,7 +50,8 @@ const routes: Routes = [
     CarrouselComponent,
     AutoCompleteSearchComponent,
     CarritoComponent,
-    ErrorComponent
+    ErrorComponent,
+    FilterPipe
   ],
   imports: [
     BrowserModule,

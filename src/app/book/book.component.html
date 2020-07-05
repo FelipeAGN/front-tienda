@@ -1,67 +1,54 @@
-<!-- <div class="container">
-    <div class="row my-2">
-        <p>Inicio/Categoria/Libro</p>
-    </div>
-    <div class="row">
-        <div class="col-lg-6 mx-auto my-3" style="background-color: brown;">
-            <h1>Hola</h1>
-            <img src="../../assets/img/exampleBook.jpg" alt="">
-        </div>
-        <div class="col-lg-6 mx-auto my-3 text-center" style="background-color:blue">
-            <h1>Hola</h1>
-        </div>
-    </div>
-</div> -->
-
-<div class="container">
-    <div class="card">
-        <div class="container-fliud">
-            <div class="wrapper row">
-                <div class="preview col-md-6">
-                    <div class="preview-pic tab-content">
-                      <div class="tab-pane active" id="pic-1"><img src="../../assets/img/bookCard.png" /></div>
-                    </div>
-                </div>
-                <div class="details col-md-6">
-                    <h3 class="product-title">{{libros.title}}</h3>
-                    <div class="rating">
-                        <div class="stars">
-                            <span class="fa fa-star checked"></span>
-                            <span class="fa fa-star checked"></span>
-                            <span class="fa fa-star checked"></span>
-                            <span class="fa fa-star"></span>
-                            <span class="fa fa-star"></span>
+<div *ngIf="libros">
+    <div class="container">
+        <div class="card">
+            <div class="container-fliud">
+                <div class="wrapper row">
+                    <div class="preview col-md-6">
+                        <div class="preview-pic tab-content">
+                        <div class="tab-pane active" id="pic-1"><img src="../../assets/img/bookCard.png" /></div>
                         </div>
-                        <span class="review-no">41 reviews</span>
                     </div>
-                    <h4 class="price">Autor: {{libros.author}}</h4>
-                    <p class="product-description">{{libros.description}}</p>
-                    <h4 class="price">current price: <span>${{libros.price}}</span></h4>
-                    <h4 class="price">stock disponible: <span>{{libros.stock}}</span></h4>
-                    <div class="card-text">
-                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Nisi ipsa officia vitae vero architecto, ex ut molestias expedita quas sit in. Incidunt quidem non rerum, modi itaque quod exercitationem. Architecto.</p>
-                    </div>
-                    <div class="action">
-                        <button class="add-to-cart btn btn-default" type="button">Agregar al Carrito</button>
-                        <button class="like btn btn-default" type="button"><span class="fa fa-heart"></span></button>
+                    <div class="details col-md-6">
+                        <h3 class="product-title">{{libros.title}}</h3>
+                        <div class="rating">
+                            <div class="stars">
+                                <span class="fa fa-star checked"></span>
+                                <span class="fa fa-star checked"></span>
+                                <span class="fa fa-star checked"></span>
+                                <span class="fa fa-star"></span>
+                                <span class="fa fa-star"></span>
+                            </div>
+                            <span class="review-no">41 reviews</span>
+                        </div>
+                        <h4 class="price">Autor: {{libros.author}}</h4>
+                        <p class="product-description">{{libros.description}}</p>
+                        <h4 class="price">current price: <span>${{libros.price}}</span></h4>
+                        <h4 class="price">stock disponible: <span>{{libros.stock}}</span></h4>
+                        <div class="action">
+                            <button class="add-to-cart btn btn-default" type="button">Agregar al Carrito</button>
+                            <button class="like btn btn-default" type="button"><span class="fa fa-heart"></span></button>
+                        </div>
                     </div>
                 </div>
             </div>
         </div>
+        <h3>Contacto</h3>
+        <p>¡Hola, comenta qué te pareció!</p>
+        <div class="row">
+            <form class="col-md-5 mb-5" #comentForm="ngForm" (ngSubmit)="onSubmit(comentForm)">
+                <div class="form-group">
+                    <label for="name">Comentario:</label>
+                    <textarea type="text" name="content" class="form-control" rows="4" #content="ngModel"
+                        [(ngModel)]="comentario.mensaje" required></textarea>
+                    <small *ngIf="!content.valid && content.touched" class="invalid-feedback d-block">
+                        Comentario invalido
+                    </small>
+                </div>
+                <input type="submit" value="Enviar Comentario" class="btn btn-success" [disabled]="comentForm.invalid">
+            </form>
+        </div>
     </div>
-    <h3>Contacto</h3>
-    <p>¡Hola, comenta qué te pareció!</p>
-    <div class="row">
-        <form class="col-md-5 mb-5" #comentForm="ngForm" (ngSubmit)="onSubmit(comentForm)">
-            <div class="form-group">
-                <label for="name">Comentario:</label>
-                <textarea type="text" name="content" class="form-control" rows="4" #content="ngModel"
-                    [(ngModel)]="comentario.mensaje" required></textarea>
-                <small *ngIf="!content.valid && content.touched" class="invalid-feedback d-block">
-                    Comentario invalido
-                </small>
-            </div>
-            <input type="submit" value="Enviar Comentario" class="btn btn-success" [disabled]="comentForm.invalid">
-        </form>
-    </div>
+</div>
+<div *ngIf="libros">
+    <app-error></app-error>
 </div>

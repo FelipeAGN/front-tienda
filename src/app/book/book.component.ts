@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router'
 import {LibrosServiceService} from '../services/libros-service.service';
 import {Libro} from "../libros/libro";
+import { PercentPipe } from '@angular/common';
 
 @Component({
   selector: 'app-book',
@@ -10,21 +11,26 @@ import {Libro} from "../libros/libro";
 })
 export class BookComponent implements OnInit {
 
+  libros: Libro;
+  id: string;
+
   constructor(private _route: ActivatedRoute, private librosService: LibrosServiceService) {
     console.log(this._route.snapshot.paramMap.get('id'));
+    // this.libros = new Libro;
   }
-  libros: Libro[];
-  id: string;
+  
 
   public comentario = {
     mensaje: null
   }
   ngOnInit(): void {
     this.id = this._route.snapshot.paramMap.get('id');
+    
     this.librosService.getLibroById(this.id).subscribe(
       libros=>this.libros = libros
-    )
-    console.log(this.id)
+    );
+
+    console.log(this.id);
     console.log(this.libros);
   }
 
