@@ -20,6 +20,7 @@ import { AutoCompleteSearchComponent } from './auto-complete-search/auto-complet
 import {MatFormFieldModule} from '@angular/material/form-field';
 import {MatAutocompleteModule} from '@angular/material/autocomplete';
 import {ReactiveFormsModule} from '@angular/forms';
+import { FormsModule } from '@angular/forms';
 import {MatInputModule} from '@angular/material/input';
 import {CarritoComponent } from './carrito/carrito.component';
 
@@ -58,6 +59,7 @@ const routes: Routes = [
     MatAutocompleteModule,
     ReactiveFormsModule,
     MatInputModule,
+    FormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]
