@@ -16,12 +16,12 @@ import {HttpClientModule} from '@angular/common/http';
 import { CarrouselComponent } from './carrousel/carrousel.component';
 import {MatCardModule} from '@angular/material/card';
 import {MatButtonModule} from '@angular/material/button';
-import { CarroComprasComponent } from './carro-compras/carro-compras.component';
 import { AutoCompleteSearchComponent } from './auto-complete-search/auto-complete-search.component';
 import {MatFormFieldModule} from '@angular/material/form-field';
 import {MatAutocompleteModule} from '@angular/material/autocomplete';
 import {ReactiveFormsModule} from '@angular/forms';
 import {MatInputModule} from '@angular/material/input';
+import {CarritoComponent } from './carrito/carrito.component';
 
 const routes: Routes = [
   {path: '', redirectTo: '/inicio', pathMatch: 'full'},
@@ -29,7 +29,7 @@ const routes: Routes = [
   {path: 'contacto', component: ContactComponent},
   {path: 'libros', component: LibrosComponent},
   {path: 'book', component: BookComponent},
-  {path:'carro',component:CarroComprasComponent},
+  {path: 'carro', component: CarritoComponent}
 ];
 
 @NgModule({
@@ -43,8 +43,8 @@ const routes: Routes = [
     InfobarComponent,
     BookComponent,
     CarrouselComponent,
-    CarroComprasComponent,
     AutoCompleteSearchComponent,
+    CarritoComponent
   ],
   imports: [
     BrowserModule,
@@ -58,7 +58,6 @@ const routes: Routes = [
     MatAutocompleteModule,
     ReactiveFormsModule,
     MatInputModule,
-
   ],
   providers: [],
   bootstrap: [AppComponent]

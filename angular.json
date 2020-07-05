@@ -128,5 +128,8 @@
       }
     }
   },
-  "defaultProject": "front-tienda"
+  "defaultProject": "front-tienda",
+  "cli": {
+    "analytics": false
+  }
 }
