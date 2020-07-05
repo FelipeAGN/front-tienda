@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import {Libro} from '../libros/libro';
+import {LibrosServiceService} from '../services/libros-service.service';
 
 @Component({
   selector: 'app-inicio',
@@ -7,9 +9,22 @@ import { Component, OnInit } from '@angular/core';
 })
 export class InicioComponent implements OnInit {
 
-  constructor() { }
+  libros: Libro[];
+  librosRated: Libro[];
+
+  constructor(
+    private librosService: LibrosServiceService
+  ) { }
 
   ngOnInit(): void {
+    this.librosService.getNewestLibros().subscribe(
+      libros=>this.libros = libros
+
+    )
+
+    this.librosService.getBestRated().subscribe(
+      librosRated =>this.librosRated = librosRated
+    )
   }
 
 }

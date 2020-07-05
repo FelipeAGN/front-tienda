@@ -12,6 +12,16 @@ import { InfobarComponent } from './infobar/infobar.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import {MatDividerModule} from '@angular/material/divider';
 import { BookComponent } from './book/book.component';
+import {HttpClientModule} from '@angular/common/http';
+import { CarrouselComponent } from './carrousel/carrousel.component';
+import {MatCardModule} from '@angular/material/card';
+import {MatButtonModule} from '@angular/material/button';
+import { CarroComprasComponent } from './carro-compras/carro-compras.component';
+import { AutoCompleteSearchComponent } from './auto-complete-search/auto-complete-search.component';
+import {MatFormFieldModule} from '@angular/material/form-field';
+import {MatAutocompleteModule} from '@angular/material/autocomplete';
+import {ReactiveFormsModule} from '@angular/forms';
+import {MatInputModule} from '@angular/material/input';
 
 const routes: Routes = [
   {path: '', redirectTo: '/inicio', pathMatch: 'full'},
@@ -19,6 +29,7 @@ const routes: Routes = [
   {path: 'contacto', component: ContactComponent},
   {path: 'libros', component: LibrosComponent},
   {path: 'book', component: BookComponent},
+  {path:'carro',component:CarroComprasComponent},
 ];
 
 @NgModule({
@@ -30,13 +41,24 @@ const routes: Routes = [
     FooterComponent,
     HeaderComponent,
     InfobarComponent,
-    BookComponent
+    BookComponent,
+    CarrouselComponent,
+    CarroComprasComponent,
+    AutoCompleteSearchComponent,
   ],
   imports: [
     BrowserModule,
     RouterModule.forRoot(routes),
     BrowserAnimationsModule,
-    MatDividerModule
+    MatDividerModule,
+    HttpClientModule,
+    MatCardModule,
+    MatButtonModule,
+    MatFormFieldModule,
+    MatAutocompleteModule,
+    ReactiveFormsModule,
+    MatInputModule,
+
   ],
   providers: [],
   bootstrap: [AppComponent]
