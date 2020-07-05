@@ -24,6 +24,7 @@
             </h1>
           </div>
         </div>
+
         <div class="col-lg-12">
           <section id="products" class="product py-5">
               <div class="row product-items" id="product-items">
@@ -43,9 +44,7 @@
                               <tr class="filaTabla">Stock: {{libro.stock}} unidades</tr>
                             </th>
                           </table>
-
                         </div>
-
                         <div class="col-sm-12">
                           <div class="row">
 
@@ -81,29 +80,26 @@
             </h1>
           </div>
         </div>
-
         <div class="col-lg-12">
-          <section class="product py-5">
+          <section id="destacados" class="product py-5">
             <div class="row product-items">
-              <div class="col-3 col-sm-3 col-lg-3 mx-auto my-3" *ngFor="let librosRated of librosRated">
+              <div class="col-3 col-sm-3 col-lg-3 mx-auto my-3" *ngFor="let libroPorRating of librosRated">
                 <div class="card single-item">
                   <img src="../../assets/img/bookCard.png" alt="caratulaLibro" class="card-img-top product-img">
                   <div class="card-body">
                     <div class="card-title">
-                      <h2 class="text-center">{{librosRated.title}}</h2>
+                      <h2 class="text-center">{{libroPorRating.title}}</h2>
                     </div>
                     <div class="row">
                       <div class="col-sm-12">
                         <table class="spacingTable">
                           <th>
-                            <tr class="filaTabla">Autor: {{librosRated.author}}</tr>
-                            <tr class="filaTabla">Precio: <i class="fas fa-dollar-sign"></i> {{librosRated.price}}</tr>
-                            <tr class="filaTabla">Stock: {{librosRated.stock}} unidades</tr>
+                            <tr class="filaTabla">Autor: {{libroPorRating.author}}</tr>
+                            <tr class="filaTabla">Precio: <i class="fas fa-dollar-sign"></i> {{libroPorRating.price}}</tr>
+                            <tr class="filaTabla">Stock: {{libroPorRating.stock}} unidades</tr>
                           </th>
                         </table>
-
                       </div>
-
                       <div class="col-sm-12">
                         <div class="row">
 
@@ -118,16 +114,18 @@
 
                     </div>
                     <br>
+                    <mat-divider></mat-divider>
                     <div class="card-text text-center">
                       <h3>Descripción</h3>
-                      <p>{{librosRated.description}}</p>
-                      <span>Rating: {{librosRated.rating}}</span>
+                      <p>{{libroPorRating.description}}</p>
+                      <span>Rating: {{libroPorRating.rating}}</span>
                     </div>
                   </div>
                 </div>
               </div>
             </div>
           </section>
+          <mat-divider></mat-divider>
         </div>
 
         </div>

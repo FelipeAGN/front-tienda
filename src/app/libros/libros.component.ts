@@ -10,6 +10,8 @@ import {Libro} from "./libro";
 export class LibrosComponent implements OnInit {
 
   libros: Libro[];
+  librosNuevos: Libro[];
+  librosMejorRating: Libro[];
 
   constructor(
     private librosService: LibrosServiceService
@@ -19,6 +21,15 @@ export class LibrosComponent implements OnInit {
     this.librosService.getLibros().subscribe(
       libros=>this.libros = libros
     )
+
+    this.librosService.getNewestLibros().subscribe(
+      librosNuevos=> this.librosNuevos = librosNuevos
+    )
+
+    this.librosService.getBestRated().subscribe(
+      librosMejorRating => this.librosMejorRating = librosMejorRating
+    )
   }
+
 
 }
