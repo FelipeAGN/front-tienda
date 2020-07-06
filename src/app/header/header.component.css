@@ -2,7 +2,7 @@
   background-color: #004d43 !important;
 }
 .navbar .nav-link{
-  font-size: 18px;
+  font-size: 20px;
   padding-left: 20px!important;
   padding-right: 20px!important;
 }
@@ -16,4 +16,8 @@
 }
 .nav-item:hover{
   background-color: orange;
+}
+
+.fas{
+  color: white;
 }
