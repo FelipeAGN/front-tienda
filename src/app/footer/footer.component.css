@@ -4,7 +4,7 @@
   position: absolute;
 
 }*/
-
+/*
 .notFooter{
   height: 100px;
   width: 100%;
@@ -12,8 +12,9 @@
   bottom: 0px;
   position: absolute;
 }
+*/
 
-
+/*
 #footer{
   margin-top: 20px;
   position: absolute;
@@ -24,4 +25,16 @@
   background-color: #f0e8e8 !important;
   color: black;
   height: 200px;
+}
+*/
+
+#footer{
+  background-color:#004d43;
+  color: white;
+  font-weight: bold;
+  background-position: bottom;
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+  margin-top: 15%;
 }
