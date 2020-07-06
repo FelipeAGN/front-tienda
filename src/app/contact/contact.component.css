@@ -1,0 +1,12 @@
+.titulo{
+    text-align: center;
+    font-weight: bold;
+    padding: 20px;
+}
+.contactoLocal{
+    margin: 60px;
+    text-align: center;
+}
+.icono{
+    font-size: 40px;
+}
