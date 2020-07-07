@@ -157,3 +157,7 @@ img {
       opacity: 1;
       -webkit-transform: scale(1);
               transform: scale(1); } }
+
+.coment{
+  margin-top: 20px;
+}
