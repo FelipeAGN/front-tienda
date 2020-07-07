@@ -22,8 +22,8 @@
                         </div>
                         <h4 class="price">Autor: {{libros.author}}</h4>
                         <p class="product-description">{{libros.description}}</p>
-                        <h4 class="price">current price: <span>${{libros.price}}</span></h4>
-                        <h4 class="price">stock disponible: <span>{{libros.stock}}</span></h4>
+                        <h4 class="price">Precio: <span>${{libros.price}}</span></h4>
+                        <h4 class="price">Stock: <span>{{libros.stock}}</span></h4>
                         <div class="action">
                             <button class="add-to-cart btn btn-default" type="button">Agregar al Carrito</button>
                             <button class="like btn btn-default" type="button"><span class="fa fa-heart"></span></button>
@@ -49,6 +49,11 @@
         </div>
     </div>
 </div>
+
+<br>
+<br>
+<br>
+<!--
 <div *ngIf="libros">
     <app-error></app-error>
-</div>
+</div>-->

@@ -1,3 +1,104 @@
+<!-- MODAL -->
+<div class="abrir-modal animacion fadeIn" *ngIf="modalService.modal">
+  <div class="modal" tabindex="-1" role="dialog" style="display: block; padding: 10px">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h2 class="modal-title text-center">¡Agrega libros a tu carrito ingresando a LibreriaCool!</h2>
+          <button (click)="cerrarModal()" type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+          <div class="row">
+            <div class="col-lg-12">
+
+              <form #loginForm=ngForm (ngSubmit)="onSubmit()">
+                <!--<div class="alert alert-danger" [hidden]="!error">{{error}} </div>-->
+                <div class="form-group row">
+
+                  <div class="col-sm-12 espaciador">
+                    <div class="row">
+                      <label for="inputFirstName" class="col-sm-4 col-form-label">Nombre</label>
+                      <div class="col-sm-8">
+                        <input type="text" name="first_name" class="form-control" id="inputFirstName" placeholder="Ingresa tu nombre" [(ngModel)]="cliente.first_name"
+                               required>
+                        <div class="alert alert-danger" [hidden]="!error.first_name">{{error.first_name}} </div>
+
+                      </div>
+                    </div>
+                  </div>
+
+                  <div class="col-sm-12 espaciador">
+                    <div class="row">
+                      <label for="inputLastName" class="col-sm-4 col-form-label">Apellidos</label>
+                      <div class="col-sm-8">
+                        <input type="text" name="last_name" class="form-control" id="inputLastName" placeholder="Ingresa tus apellidos" [(ngModel)]="cliente.last_name"
+                               required>
+                        <div class="alert alert-danger" [hidden]="!error.last_name">{{error.last_name}} </div>
+                      </div>
+                    </div>
+                  </div>
+
+                  <div class="col-sm-12 espaciador">
+                    <div class="row">
+                      <label for="inputRut" class="col-sm-4 col-form-label">Rut</label>
+                      <div class="col-sm-8">
+                        <input type="text" name="rut" class="form-control" id="inputRut" placeholder="Ingresa tu rut" [(ngModel)]="cliente.rut"
+                               required>
+                        <div class="alert alert-danger" [hidden]="!error.rut">{{error.rut}} </div>
+                      </div>
+                    </div>
+                  </div>
+
+                  <div class="col-sm-12 espaciador">
+                    <div class="row">
+                      <label for="inputEmail" class="col-sm-4 col-form-label">Email</label>
+                      <div class="col-sm-8">
+                        <input type="email" name="email" class="form-control" id="inputEmail" placeholder="Ingresar correo electrónico" [(ngModel)]="cliente.email"
+                               required>
+                        <div class="alert alert-danger" [hidden]="!error.email">{{error.email}} </div>
+                      </div>
+                    </div>
+                  </div>
+
+                  <div class="col-sm-12 espaciador">
+                    <div class="row">
+                      <label for="inputAddress" class="col-sm-4 col-form-label">Dirección de envío</label>
+                      <div class="col-sm-8">
+                        <input type="text" name="address" class="form-control" id="inputAddress" placeholder="Ingresar dirección de envío" [(ngModel)]="cliente.address"
+                               required>
+                        <div class="alert alert-danger" [hidden]="!error.address">{{error.address}} </div>
+                      </div>
+                    </div>
+                  </div>
+                    <div class="col-sm-12 espaciador" style="padding-top: 25px;">
+                      <div class="row">
+                        <div class="col-sm-6">
+                          <button type="submit" class="btn btn-outline-primary float-left" [disabled]="!loginForm.valid">Ingresar</button>
+                        </div>
+                        <div class="col-sm-6">
+                          <button class="btn btn-outline-danger float-right" (click)="cerrarModal()">Cancelar</button>
+                        </div>
+                      </div>
+                    </div>
+
+                </div>
+
+              </form>
+
+            </div>
+          </div>
+        </div>
+
+          </div>
+        </div>
+      </div>
+    </div>
+
+
+
+
 <div class="container-fluid">
   <div class="container">
     <div class="section">
@@ -51,12 +152,12 @@
                       <div class="col-sm-12">
                         <div class="row">
                           <div class="col-lg-12">
-                            <button class="btn btn-primary colorsizeButton">Agregar a Carro</button>
+                            <button class="btn btn-primary colorsizeButton" (click)="abrirModal()">Agregar a Carro</button>
                           </div>
-                          
+
                         </div>
                       </div>
-    
+
                     </div>
                     <br>
                     <mat-divider></mat-divider>
@@ -106,12 +207,12 @@
                       <div class="col-sm-12">
                         <div class="row">
                           <div class="col-lg-12">
-                            <button class="btn btn-primary colorsizeButton">Agregar a Carro</button>
+                            <button class="btn btn-primary colorsizeButton" (click)="abrirModal()">Agregar a Carro</button>
                           </div>
-                          
+
                         </div>
                       </div>
-    
+
                     </div>
                     <br>
                     <mat-divider></mat-divider>

@@ -12,4 +12,8 @@ export class HeaderComponent implements OnInit {
   ngOnInit(): void {
   }
 
+  createCarrito(event: MouseEvent){
+    event.preventDefault();
+  }
+
 }
