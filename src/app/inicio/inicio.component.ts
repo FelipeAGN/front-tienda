@@ -4,6 +4,7 @@ import {LibrosServiceService} from '../services/libros-service.service';
 import {Cliente} from '../cliente/Cliente';
 import {ModalServiceService} from '../services/modal-service.service';
 import {ClienteServiceService} from '../services/cliente-service.service';
+import {CarritoServiceService} from '../services/carrito-service.service';
 
 @Component({
   selector: 'app-inicio',
@@ -15,20 +16,12 @@ export class InicioComponent implements OnInit {
   libros: Libro[];
   librosRated: Libro[];
 
-  public cliente ={
-    rut:null,
-    first_name:null,
-    last_name:null,
-    email:null,
-    address:null
-  };
-
-  public error = {email: '', rut: '', first_name: '', last_name: '', address: ''};
 
   constructor(
     private librosService: LibrosServiceService,
     public modalService : ModalServiceService,
-    private clienteService: ClienteServiceService
+    private clienteService: ClienteServiceService,
+    private carritoService: CarritoServiceService
   ) { }
 
   ngOnInit(): void {
@@ -42,6 +35,11 @@ export class InicioComponent implements OnInit {
     )
   }
 
+  agregarLibro(id_libro){
+
+    this.carritoService.agregarLibroCarrito(id_libro)
+  }
+/*
   abrirModal(){
     this.modalService.abrirModal();
   }
@@ -60,14 +58,13 @@ export class InicioComponent implements OnInit {
 
   }
 
-
   public handleResponse(){
     console.log(true);
   }
 
   public errorHandler(error){
     this.error = error.error.errors;
-  }
+  }*/
 
 
 

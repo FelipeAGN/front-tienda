@@ -1,0 +1,32 @@
+table {
+  width: 100%;
+}
+
+tr.mat-footer-row {
+  font-weight: bold;
+}
+
+.separador {
+  margin: 15px;
+}
+
+table {
+  border-spacing: 5px;
+  font-family: arial, sans-serif;
+  border-collapse: collapse;
+  width: 100%;
+}
+
+td, th {
+  border: 1px solid #dddddd;
+  text-align: left;
+  padding: 8px;
+}
+
+tr:nth-child(even) {
+  background-color: #dddddd;
+}
+
+.button-spacing{
+  margin-bottom: 15px;
+}

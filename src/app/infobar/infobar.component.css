@@ -1,0 +1,8 @@
+.info-bar{
+  height: 60px;
+  width: 100%;
+  padding: 30px;
+  background-color: #dddddd;
+  margin-bottom: 10px;
+  //margin-top: 10px;
+}

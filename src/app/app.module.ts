@@ -7,7 +7,6 @@ import {MatDividerModule} from '@angular/material/divider';
 import {HttpClientModule} from '@angular/common/http';
 import {MatCardModule} from '@angular/material/card';
 import {MatButtonModule} from '@angular/material/button';
-import { AutoCompleteSearchComponent } from './auto-complete-search/auto-complete-search.component';
 import { MatFormFieldModule} from '@angular/material/form-field';
 import { MatAutocompleteModule} from '@angular/material/autocomplete';
 import { ReactiveFormsModule} from '@angular/forms';
@@ -26,6 +25,12 @@ import { CarritoComponent } from './carrito/carrito.component';
 import { ErrorComponent } from './error/error.component';
 import { FilterPipe } from './pipes/filter.pipe';
 import { ClienteComponent } from './cliente/cliente.component';
+import {MatTableModule} from '@angular/material/table';
+import { StepperOverviewComponent } from './carrito/stepper-overview/stepper-overview.component';
+import {MatStepperModule} from '@angular/material/stepper';
+import { ModalComponent } from './modal/modal.component';
+import { CategoriasComponent } from './categorias/categorias.component';
+import {MatCheckboxModule} from '@angular/material/checkbox';
 
 const routes: Routes = [
   {path: '', redirectTo: '/inicio', pathMatch: 'full'},
@@ -34,6 +39,7 @@ const routes: Routes = [
   {path: 'libros', component: LibrosComponent},
   {path: 'book/:id', component: BookComponent},
   {path: 'carro', component: CarritoComponent},
+  {path: 'categorias', component: CategoriasComponent},
   {path: '**', component: ErrorComponent}
 ];
 
@@ -48,11 +54,13 @@ const routes: Routes = [
     InfobarComponent,
     BookComponent,
     CarrouselComponent,
-    AutoCompleteSearchComponent,
     CarritoComponent,
     ErrorComponent,
     FilterPipe,
-    ClienteComponent
+    ClienteComponent,
+    StepperOverviewComponent,
+    ModalComponent,
+    CategoriasComponent,
   ],
   imports: [
     BrowserModule,
@@ -66,7 +74,10 @@ const routes: Routes = [
     MatAutocompleteModule,
     ReactiveFormsModule,
     MatInputModule,
-    FormsModule
+    FormsModule,
+    MatTableModule,
+    MatStepperModule,
+    MatCheckboxModule,
   ],
   providers: [],
   bootstrap: [AppComponent]

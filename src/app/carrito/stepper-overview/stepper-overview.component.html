@@ -1,0 +1,68 @@
+<div class="container" style="background-color: #2c3440;border-bottom: 12px solid #2c3440;border-top: 10px solid #2c3440; margin:20px">
+  <mat-horizontal-stepper [linear]="isLinear" #stepper>
+    <mat-step [stepControl]="firstFormGroup">
+      <form [formGroup]="firstFormGroup" #loginForm=ngForm (ngSubmit)="onSubmit()">
+        <ng-template matStepLabel>Regístrate para poder completar tu compra</ng-template>
+        <mat-form-field class="form-spacing">
+          <mat-label>Nombre</mat-label>
+          <input type="text" matInput placeholder="Nombres" formControlName="firstCtrl" [(ngModel)]="cliente.first_name" required>
+        </mat-form-field>
+
+        <mat-form-field class="form-spacing">
+          <mat-label>Apellidos</mat-label>
+          <input type="text" matInput placeholder="Apellidos" formControlName="firstCtrl" [(ngModel)]="cliente.last_name" required>
+        </mat-form-field>
+
+        <mat-form-field class="form-spacing">
+          <mat-label>Rut</mat-label>
+          <input type="text" matInput placeholder="Rut" formControlName="firstCtrl" [(ngModel)]="cliente.rut" required>
+        </mat-form-field>
+
+        <mat-form-field class="form-spacing">
+          <mat-label>Email</mat-label>
+          <input type="email" matInput placeholder="Correo electrónico" formControlName="firstCtrl" [(ngModel)]="cliente.email" required>
+        </mat-form-field>
+
+        <mat-form-field class="form-spacing">
+          <mat-label>Dirección</mat-label>
+          <input type="text" matInput placeholder="Dirección de envío" formControlName="firstCtrl" [(ngModel)]="cliente.address" required>
+        </mat-form-field>
+
+        <div>
+          <button type="submit" class="btn btn-outline-primary float-right" mat-button matStepperNext [disabled]="!loginForm.valid">Siguiente</button>
+          <button type="reset" class="btn btn-outline-danger float-left" mat-button matStepperNext (click)="stepper.previous()">Cancelar</button>
+        </div>
+      </form>
+    </mat-step>
+    <mat-step [stepControl]="secondFormGroup">
+      <form [formGroup]="secondFormGroup">
+        <ng-template matStepLabel>Ingresar datos de pago y envío</ng-template>
+
+        <mat-form-field class="form-spacing">
+          <mat-label>Método de pago</mat-label>
+          <input type="text" matInput formControlName="secondCtrl" placeholder="Ingresar método de pago"
+                 required>
+        </mat-form-field>
+
+        <mat-form-field class="form-spacing">
+          <mat-label>Teléfono de contacto</mat-label>
+          <input type="tel" matInput formControlName="secondCtrl" placeholder="Ingresara número de contacto"
+                 required>
+        </mat-form-field>
+
+        <div>
+          <button type="submit" class="btn btn-outline-primary float-right" mat-button matStepperNext>Siguiente</button>
+          <button type="reset" class="btn btn-outline-danger float-left" mat-button matStepperNext (click)="stepper.previous()">Cancelar</button>
+        </div>
+      </form>
+    </mat-step>
+    <mat-step>
+      <ng-template matStepLabel>Efectuar Compra</ng-template>
+      <div>
+        <button type="submit" class="btn btn-outline-primary float-right form-spacing" mat-button matStepperNext>Pagar</button>
+        <button mat-button class="btn btn-outline-danger float-left form-spacing" (click)="stepper.reset()">Reiniciar procedimiento</button>
+      </div>
+    </mat-step>
+  </mat-horizontal-stepper>
+
+</div>

@@ -1,1 +1,35 @@
-<p>asd</p>
+<div class="container-fluid">
+   <div class="row">
+     <div class="col-sm-12">
+       <div class="container">
+         <app-stepper-overview></app-stepper-overview>
+         <mat-divider></mat-divider>
+       </div>
+     </div>
+
+     <div class="col-sm-12 separador">
+       <div class="container">
+         <div class="row">
+           <button class="btn btn-outline-dark float-right button-spacing">Vaciar Carrito</button>
+           <table>
+             <tr>
+               <th>ID Libro</th>
+               <th>Nombre Libro</th>
+               <th>Cantidad</th>
+               <th>Costo libro(s)</th>
+             </tr>
+             <tr *ngFor="let carrito of carritosUsuario">
+               <td> <!--*ngFor="let producto as producto"--> {{carrito.id_book}}</td>
+               <td>nombre libro</td>
+               <td>{{carrito.cantidad_libros}}</td>
+               <td>{{carrito.libro_total}}</td>
+             </tr>
+           </table>
+          </div>
+       </div>
+     <div class="col-sm-12 espaciador">
+       </div>
+     </div>
+   </div>
+
+ </div>
