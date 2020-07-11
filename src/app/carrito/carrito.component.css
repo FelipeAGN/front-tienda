@@ -30,3 +30,7 @@ tr:nth-child(even) {
 .button-spacing{
   margin-bottom: 15px;
 }
+
+.espaciador{
+  margin-bottom: 99px;
+}

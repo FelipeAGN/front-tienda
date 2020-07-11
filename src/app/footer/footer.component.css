@@ -31,11 +31,9 @@
 #footer{
   background-color:#004d43;
   color: white;
-  font-weight: bold;
   font-size: 15px;
   background-position: bottom;
-  position: fixed;
-  bottom: 0;
+  position: absolute;
   width: 100%;
-  margin-top: 15%;
+  margin-top: 50px;
 }
