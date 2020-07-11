@@ -30,3 +30,6 @@ img{
 .titulo{
   color: white !important;
 }
+.titulo:hover{
+  color: white !important; 
+}
