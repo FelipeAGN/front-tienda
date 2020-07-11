@@ -14,6 +14,8 @@ export class CategoriasComponent implements OnInit {
   libros: Libro[];
   categorias: Categoria[];
 
+  filterBook = '';
+
   constructor(
     private categoriaService: CategoriasServiceService,
     private libroService: LibrosServiceService
@@ -41,6 +43,11 @@ export class CategoriasComponent implements OnInit {
     console.log(idCategory);
     this.categoriaService.getLibrosCategoria(idCategory).subscribe(
       libros => this.libros = libros
+    )
+  }
+  allBooks(){
+    this.libroService.getLibros().subscribe(
+      libros=>this.libros = libros
     )
   }
 

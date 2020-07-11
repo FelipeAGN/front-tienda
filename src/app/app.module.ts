@@ -36,10 +36,10 @@ const routes: Routes = [
   {path: '', redirectTo: '/inicio', pathMatch: 'full'},
   {path: 'inicio', component: InicioComponent},
   {path: 'contacto', component: ContactComponent},
-  {path: 'libros', component: LibrosComponent},
+  {path: 'libros', component: CategoriasComponent},
   {path: 'book/:id', component: BookComponent},
   {path: 'carro', component: CarritoComponent},
-  {path: 'categorias', component: CategoriasComponent},
+  // {path: 'categorias', component: CategoriasComponent},
   {path: '**', component: ErrorComponent}
 ];
 
