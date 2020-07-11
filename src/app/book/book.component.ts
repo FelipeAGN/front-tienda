@@ -14,6 +14,7 @@ import { PercentPipe } from '@angular/common';
 export class BookComponent implements OnInit {
 
   libros: Libro;
+  aleatorio = Math.floor(Math.random()*1000);
   // coment: Comentario;
   comentarios: Comentario[];
   id: string;
