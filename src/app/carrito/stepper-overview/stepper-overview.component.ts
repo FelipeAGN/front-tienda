@@ -41,14 +41,14 @@ export class StepperOverviewComponent implements OnInit {
   onSubmit(){
     //console.log(this.cliente);
     this.clienteService.newUser(this.cliente).subscribe(
-      data=> this.handleResponse(),
+      data=> this.handleResponse(data),
       error => this.errorHandler(error)
     )
 
   }
 
-  public handleResponse(){
-    console.log(true);
+  public handleResponse(data){
+    console.log(data);
   }
 
   public errorHandler(error){

@@ -1,8 +1,14 @@
 .info-bar{
-  height: 60px;
   width: 100%;
-  padding: 30px;
-  background-color: #dddddd;
+  padding: 10px;
+  background-color: #f4ecec;
   margin-bottom: 10px;
-  //margin-top: 10px;
+  color: #2c3440;
+  margin-left: 0px;
+}
+
+.buttonInfoBar{
+  border-bottom: 1px solid #2c3440;
+  text-decoration: none;
+  color: #7e8897;
 }

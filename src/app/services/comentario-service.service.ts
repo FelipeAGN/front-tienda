@@ -9,22 +9,20 @@ import {map} from 'rxjs/operators';
 })
 export class ComentarioServiceService {
 
-  private urlEndpoint: string = 'http://localhost:8000/api/books';
-  private anotherUrlEndpoint: string = 'http://localhost:8000/api/';
+  private urlEndpoint: string = 'http://localhost:8000/api/';
 
   constructor(
     private http: HttpClient,
   ){}
 
-
-
   getComentById(id: string):Observable<Comentario[]>{
-    return this.http.get(this.anotherUrlEndpoint + 'books/' + id + '/comentarios').pipe(
+    return this.http.get(this.urlEndpoint + 'books/' + id + '/comentarios').pipe(
       map(response=> response as Comentario[])
     )
   }
 
   newComentario(data, id){
-    return this.http.post(this.anotherUrlEndpoint + 'books/' + id + '/comentario',data);
+    return this.http.post(this.urlEndpoint + 'books/' + id + '/comentario',data);
   }
+
 }

@@ -15,37 +15,33 @@ export class BookComponent implements OnInit {
 
   libros: Libro;
   aleatorio = Math.floor(Math.random()*1000);
-  // coment: Comentario;
   comentarios: Comentario[];
   id: string;
-  public coment = {
-    text: null,
-    id_book: null,
-    comment_by: 'pepe',
-    rating: 3
-  } ;
 
-  constructor(private _route: ActivatedRoute, 
-              private librosService: LibrosServiceService, 
+  //Objeto para enviar comentario a backend
+
+  public comment = {
+    text: null,
+    commented_by: null,
+    rating: null
+  };
+
+
+  constructor(private _route: ActivatedRoute,
+              private librosService: LibrosServiceService,
               private comentService: ComentarioServiceService) {
     console.log(this._route.snapshot.paramMap.get('id'));
-    // this.libros = new Libro;
-    // this.coment = new Comentario;
-    
   }
-  
+
   public error = {text: '',
                   rating: '',
                   comment_by: '',
                   id_book: ''
                 }
-  
+
   ngOnInit(): void {
     this.id = this._route.snapshot.paramMap.get('id');
-    this.coment.comment_by = 'pepe';
-    this.coment.id_book = this.id;
-    this.coment.rating = 4;
-    
+
     this.librosService.getLibroById(this.id).subscribe(
       libros=>this.libros = libros
     );
@@ -58,17 +54,18 @@ export class BookComponent implements OnInit {
     console.log(this.comentarios);
   }
 
-  onSubmit(form){
-    console.log(this.comentarios);
-    console.log(this.coment);
-    this.comentService.newComentario(this.coment, this.id).subscribe(
-      data=>this.handleResponse(),
-      error=>this.handleError(error)
-    );
+  onSubmit(){
+    console.log(this.comment);
+
+    this.comentService.newComentario(this.comment, this.id).subscribe(
+      data => this.handleResponse(data),
+      error => this.handleError(error)
+    )
+
   }
 
-  handleResponse(){
-    console.log(true)
+  handleResponse(data){
+    console.log(data)
   }
 
   handleError(error){

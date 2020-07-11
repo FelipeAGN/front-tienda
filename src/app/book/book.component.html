@@ -28,36 +28,70 @@
                 </div>
             </div>
         </div>
-        <p class="coment">¡Hola, nos encantaria saber tu opinion sobre {{libros.title}}!</p>
+        <h1 class="coment" style="text-align: center;">¡Hola, nos encantaria saber tu opinion sobre {{libros.title}}!</h1>
         <div class="row">
-            <form class="col-md-5 mb-5" #comentForm="ngForm" (ngSubmit)="onSubmit(comentForm)">
+            <form class="col-md-12 mb-12" #commentForm="ngForm" (ngSubmit)="onSubmit()">
                 <div class="form-group">
-                    <label for="name">Comentario:</label>
-                    <textarea type="text" name="content" class="form-control" rows="4" #content="ngModel"
-                        [(ngModel)]="coment.text" required></textarea>
+
+                  <label for="nombreComentador" class="spacingLabel">¿Quién Comenta?</label>
+                  <div class="col-md-12">
+                    <input type="text" id="nombreComentador" name="nombreCommentador" placeholder="Ingrese un nombre" [(ngModel)]="comment.commented_by" required>
+                  </div>
+
+                  <label for="cuerpoComentario" class="spacingLabel">Comentario:</label>
+                  <div class="col-md-12">
+                     <textarea type="text" id="cuerpoComentario" class="form-control" rows="4" #content="ngModel"
+                               [(ngModel)]="comment.text" required name="cuerpoComentario"></textarea>
                     <small *ngIf="!content.valid && content.touched" class="invalid-feedback d-block">
-                        Comentario invalido
+                      Comentario invalido
                     </small>
+                  </div>
+
+                  <label for="puntaje" class="spacingLabel">Puntuar Libro:</label>
+                  <small> (del 1 al 5)</small>
+                  <div class="col-md-12">
+                    <input type="number" id="puntaje" placeholder="Ingresar una evaluación" min="0" max="5" [(ngModel)]="comment.rating" name="ratingComentario" required>
+                  </div>
+
                 </div>
-                <input type="submit" value="Enviar Comentario" class="btn btn-success" [disabled]="comentForm.invalid">
+              <div class="col-md-12">
+                <input type="submit" value="Enviar Comentario" class="btn btn-success spacingLabel" [disabled]="commentForm.invalid">
+              </div>
             </form>
         </div>
+      <br>
         <mat-divider></mat-divider>
         <div class="row">
-            <div *ngFor="let comenta of comentarios">
-                <div>
-                    <h1>{{comenta.text}}</h1>
-                </div>
-                
-            <!-- </div> -->
-        </div>
+          <div class="col-lg-12">
+            <h2 style="text-align: center;margin: 20px"> Comentarios de usuarios:</h2>
+          </div>
+          <div class="col-sm-6 spacingComment" *ngFor="let comenta of comentarios">
+            <div class="row">
+              <div class="col-sm-2">
+                <i class="fas fa-user" style="font-size: 60px;margin: 5px;"></i>
+              </div>
+              <div class="col-sm-10">
+                <mat-card class="example-card">
+                  <mat-card-header>
+                    <mat-card-title>{{comenta.comment_by}}</mat-card-title>
+                  </mat-card-header>
+                  <mat-card-content>
+                    <p>
+                      {{comenta.text}}
+                    </p>
+                  </mat-card-content>
+                  <mat-card-footer style="text-align: right">
+                    Rating: {{comenta.rating}}
+                  </mat-card-footer>
+                </mat-card>
+            </div>
+            </div>
+          </div>
+
     </div>
 </div>
+</div>
+<br>
+<br>
+<br>
 
-<br>
-<br>
-<br>
-<!--
-<div *ngIf="libros">
-    <app-error></app-error>
-</div>-->
