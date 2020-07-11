@@ -38,13 +38,22 @@
                 <div class="form-group">
                     <label for="name">Comentario:</label>
                     <textarea type="text" name="content" class="form-control" rows="4" #content="ngModel"
-                        [(ngModel)]="comentario.mensaje" required></textarea>
+                        [(ngModel)]="coment.text" required></textarea>
                     <small *ngIf="!content.valid && content.touched" class="invalid-feedback d-block">
                         Comentario invalido
                     </small>
                 </div>
                 <input type="submit" value="Enviar Comentario" class="btn btn-success" [disabled]="comentForm.invalid">
             </form>
+        </div>
+        <mat-divider></mat-divider>
+        <div class="row">
+            <div *ngFor="let comenta of comentarios">
+                <div>
+                    <h1>{{comenta.text}}</h1>
+                </div>
+                
+            <!-- </div> -->
         </div>
     </div>
 </div>

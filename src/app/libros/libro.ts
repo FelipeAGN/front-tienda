@@ -6,5 +6,4 @@ export class Libro{
   stock: number;
   price: number;
   rating: number;
-
 }

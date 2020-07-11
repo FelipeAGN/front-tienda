@@ -110,6 +110,33 @@
           <mat-divider></mat-divider>
         </div>
 
+        <section class="services py-5 text-center">
+          <div class="container">
+            <div class="row">
+              <div class="col-10 mx-auto col-md-6 col-lg-5 my-3">
+                  <span class="service-icon">
+                    <i class="fas fa-book fa-3x"></i>
+                  </span>
+                <h4 class="font-weight-bold text-uppercase">
+                  variedad de libros
+                </h4>
+                <p class="text-capitalize">Lorem ipsum dolor sit amet consectetur adipisicing elit. Impedit repudiandae tempora ab fuga dolor ver</p>
+              </div>
+              <div class="col-10 mx-auto col-md-6 col-lg-5 my-3">
+                  <span class="service-icon">
+                    <i class="fas fa-globe fa-3x"></i>
+                  </span>
+                <h4 class="font-weight-bold text-uppercase">
+                  envio internacional gratuito
+                </h4>
+                <p class="text-capitalize">Lorem ipsum dolor sit amet consectetur adipisicing elit. Impedit repudiandae tempora ab fuga dolor ver</p>
+              </div>
+            </div>
+          </div>
+        </section>
+        
+        <mat-divider></mat-divider>
+
         <div class="col-lg-12">
           <div class="d-inline-flex">
             <h1> Novedades
@@ -120,7 +147,7 @@
         <div class="col-lg-12">
           <section id="products" class="product py-5">
             <div class="row product-items" id="product-items">
-              <div class="col-3 col-sm-3 col-lg-3 mx-auto my-3" *ngFor="let libro of libros.slice(0,12)">
+              <div class="col-3 col-sm-3 col-lg-3 mx-auto my-3" *ngFor="let libro of libros.slice(0,4)">
                 <div class="card single-item">
                   <a [routerLink]="['/book', libro.id_book]">
                     <img src="../../assets/img/{{libro.url_image}}" alt="caratulaLibro" class="card-img-top product-img">
@@ -222,32 +249,7 @@
     </div>
   </div>
   <mat-divider></mat-divider>
-
+</div>
 
 
   <!-- textos sobre la tienda de libros, despacho, blablabla-->
-</div>
-<section class="services py-5 text-center">
-  <div class="container">
-    <div class="row">
-      <div class="col-10 mx-auto col-md-6 col-lg-5 my-3">
-          <span class="service-icon">
-            <i class="fas fa-book fa-3x"></i>
-          </span>
-        <h4 class="font-weight-bold text-uppercase">
-          variedad de libros
-        </h4>
-        <p class="text-capitalize">Lorem ipsum dolor sit amet consectetur adipisicing elit. Impedit repudiandae tempora ab fuga dolor ver</p>
-      </div>
-      <div class="col-10 mx-auto col-md-6 col-lg-5 my-3">
-          <span class="service-icon">
-            <i class="fas fa-globe fa-3x"></i>
-          </span>
-        <h4 class="font-weight-bold text-uppercase">
-          envio internacional gratuito
-        </h4>
-        <p class="text-capitalize">Lorem ipsum dolor sit amet consectetur adipisicing elit. Impedit repudiandae tempora ab fuga dolor ver</p>
-      </div>
-    </div>
-  </div>
-</section>
