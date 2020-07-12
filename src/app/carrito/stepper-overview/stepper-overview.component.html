@@ -1,3 +1,23 @@
+<div class="abrir-modal animacion fadeIn" *ngIf="modalService.modal">
+  <div class="modal" tabindex="-1" role="dialog" style="display: block; padding: 10px">
+    <div class="modal-dialog">
+      <div class="modal-content">
+
+        <div class="modal-header">
+          <h1 class="modal-title text-center">¡Pago realizado con éxito!</h1>
+          <button (click)="this.modalService.cerrarModal()" type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <mat-divider></mat-divider>
+        <div class="modal-body">
+          <p>Gracias por preferirnos :) <i class="fas fa-heart" style="font-size: 40px"></i></p>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
 <div class="container" style="background-color: #2c3440;border-bottom: 12px solid #2c3440;border-top: 10px solid #2c3440; margin:20px">
   <mat-horizontal-stepper [linear]="isLinear" #stepper>
     <mat-step [stepControl]="firstFormGroup">
@@ -59,7 +79,7 @@
     <mat-step>
       <ng-template matStepLabel>Efectuar Compra</ng-template>
       <div>
-        <button type="submit" class="btn btn-outline-primary float-right form-spacing" mat-button matStepperNext>Pagar</button>
+        <button type="submit" class="btn btn-outline-primary float-right form-spacing" mat-button matStepperNext (click)="this.modalService.abrirModalLibroAgregado()">Pagar</button>
         <button mat-button class="btn btn-outline-danger float-left form-spacing" (click)="stepper.reset()">Reiniciar procedimiento</button>
       </div>
     </mat-step>

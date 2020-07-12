@@ -3,6 +3,8 @@ import {Carrito} from './Carrito';
 import {CarritoServiceService} from '../services/carrito-service.service';
 import {LibrosServiceService} from '../services/libros-service.service';
 import {Libro} from '../libros/Libro';
+import {Observable} from 'rxjs';
+import {infoPago} from './infoPago';
 
 @Component({
   selector: 'app-carrito',
@@ -13,6 +15,7 @@ export class CarritoComponent implements OnInit {
 
   public carritosUsuario : Carrito[];
   public libros: Libro[];
+  public montoPago: infoPago;
 
   public carrito ={
     rut:null,
@@ -36,10 +39,9 @@ export class CarritoComponent implements OnInit {
       carritosUsuario => this.carritosUsuario = carritosUsuario
     )
 
-    for(const carrito of this.carritosUsuario){
-     //this.libros[]= this.librosService.getLibroCarrito(carrito.id_book)
-    }
-
+    this.carritoService.obtenerMontoAPagar().subscribe(
+      montoPago => this.montoPago = montoPago
+    );
   }
 
   handleResponse(){

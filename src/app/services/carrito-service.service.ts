@@ -3,6 +3,7 @@ import {HttpClient} from '@angular/common/http';
 import {Observable} from 'rxjs';
 import {map} from 'rxjs/operators';
 import {Carrito} from '../carrito/Carrito';
+import {infoPago} from '../carrito/infoPago';
 
 @Injectable({
   providedIn: 'root'
@@ -26,6 +27,14 @@ export class CarritoServiceService {
     );
   }
 
+  obtenerMontoAPagar():Observable<infoPago>{
+    return this.http.get(this.urlEndpoint+'totalpagar').pipe(
+      map(response=> response as infoPago)
+    )
+  }
 
+  /*pagarCarritos(){
+    return this.http.post(this.urlEndpoint)
+  }*/
 
 }

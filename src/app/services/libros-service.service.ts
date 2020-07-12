@@ -40,11 +40,6 @@ export class LibrosServiceService {
     )
   }
 
-  getLibroCarrito(id: number):Observable<Libro>{
-    return this.http.get(this.anotherUrlEndpoint + 'books/' + id).pipe(
-      map(response=> response as Libro)
-    )
-  }
 
   /*
   getLibroById(data){

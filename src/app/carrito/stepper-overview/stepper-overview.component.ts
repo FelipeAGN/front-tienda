@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import {FormBuilder, FormGroup, Validators} from '@angular/forms';
 import {ClienteServiceService} from '../../services/cliente-service.service';
+import {CarritoServiceService} from '../../services/carrito-service.service';
+import {ModalServiceService} from '../../services/modal-service.service';
 
 @Component({
   selector: 'app-stepper-overview',
@@ -9,16 +11,17 @@ import {ClienteServiceService} from '../../services/cliente-service.service';
 })
 export class StepperOverviewComponent implements OnInit {
 
+
   isLinear = false;
   firstFormGroup: FormGroup;
   secondFormGroup: FormGroup;
 
-  public cliente ={
-    first_name:null,
-    last_name:null,
-    rut:null,
-    email:null,
-    address:null
+  public cliente = {
+    first_name: null,
+    last_name: null,
+    rut: null,
+    email: null,
+    address: null
   };
 
   public error = {email: '', rut: '', first_name: '', last_name: '', address: ''};
@@ -26,8 +29,11 @@ export class StepperOverviewComponent implements OnInit {
 
   constructor(
     private _formBuilder: FormBuilder,
-    private clienteService: ClienteServiceService
-    ) {}
+    private clienteService: ClienteServiceService,
+    private carritoService: CarritoServiceService,
+    public modalService: ModalServiceService
+  ) {
+  }
 
   ngOnInit() {
     this.firstFormGroup = this._formBuilder.group({
@@ -38,22 +44,25 @@ export class StepperOverviewComponent implements OnInit {
     });
   }
 
-  onSubmit(){
-    //console.log(this.cliente);
+  onSubmit() {
     this.clienteService.newUser(this.cliente).subscribe(
-      data=> this.handleResponse(data),
+      data => this.handleResponse(data),
       error => this.errorHandler(error)
     )
-
   }
 
-  public handleResponse(data){
+  public handleResponse(data) {
     console.log(data);
   }
 
-  public errorHandler(error){
+  public errorHandler(error) {
     this.error = error.error.errors;
   }
+
+
+  /*pagarLibros(){
+    this.carritoService.
+  }*/
 
 
 
