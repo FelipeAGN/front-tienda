@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import {ContactoServiceService} from '../services/contacto-service.service';
+import {Contacto} from './Contacto';
 
 @Component({
   selector: 'app-contact',
@@ -7,9 +9,11 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ContactComponent implements OnInit {
 
-  constructor() { }
+  constructor(
+    private contactoService: ContactoServiceService
+  ) { }
 
-  public formulario = {
+  public form = {
     email: null,
     subject: null,
     content: null
@@ -18,8 +22,8 @@ export class ContactComponent implements OnInit {
   ngOnInit(): void {
   }
 
-  onSubmit(form){
-    console.log(this.formulario);
+  onSubmit(){
+    console.log(this.form);
   }
 
 }

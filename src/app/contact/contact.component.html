@@ -2,33 +2,39 @@
 <div class="col-md-12 my-8">
     <h1 class="titulo">¡Contáctate con nosotros!</h1>
     <div class="row">
-        <form class="col-md-5" #contactForm="ngForm" (ngSubmit)="onSubmit(contactForm)">
+        <form class="col-md-5" #contactForm="ngForm" (ngSubmit)="onSubmit()">
+
           <h3 style="text-align: center; margin: 5px">Formulario de contacto</h3>
+
           <div class="form-group">
                 <label for="email">E-mail</label>
-                <input type="text" name="email" class="form-control" #email="ngModel" [(ngModel)]="formulario.email"
+                <input type="text" placeholder="Ingresar email válido" id="email" name="email" class="form-control" [(ngModel)]="form.email"
                     required pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$">
-                <small *ngIf="!email.valid && email.touched" class="invalid-feedback d-block">
+                <!--<small *ngIf="!email.valid && email.touched" class="invalid-feedback d-block">
                     E-mail invalido
-                </small>
+                </small>-->
             </div>
+
             <div class="form-group">
-                <label for="name">Asunto</label>
-                <input type="text" name="subject" class="form-control" #subject="ngModel"
-                    [(ngModel)]="formulario.subject" required>
-                <small *ngIf="!subject.valid && subject.touched" class="invalid-feedback d-block">
-                    Asunto invalida
-                </small>
+                <label for="subject">Asunto</label>
+                <input type="text" placeholder="Ingresar asunto de mensaje" id="subject" name="subject" class="form-control" [(ngModel)]="form.subject" required>
+              <!--  <small *ngIf="!subject.valid && subject.touched" class="invalid-feedback d-block">
+                    Asunto inválido
+                </small>-->
             </div>
+
             <div class="form-group">
-                <label for="name">Mensaje:</label>
-                <textarea type="text" name="content" class="form-control" rows="4" #content="ngModel"
-                    [(ngModel)]="formulario.content" required></textarea>
-                <small *ngIf="!content.valid && content.touched" class="invalid-feedback d-block">
-                    Mensaje invalido
-                </small>
+                <label for="bodyMessage">Mensaje:</label>
+                <textarea type="text" placeholder="Ingresar mensaje" id="bodyMessage" name="content" class="form-control" rows="4" [(ngModel)]="form.content" required>
+
+                </textarea>
+                <!--<small *ngIf="!content.valid && content.touched" class="invalid-feedback d-block">
+                    Mensaje inválido
+                </small>-->
             </div>
+
             <input type="submit" value="Ingresar" class="btn btn-success" [disabled]="contactForm.invalid">
+
         </form>
         <div class="col-md-6 text-right">
             <h3>Nuestra Oficina</h3>

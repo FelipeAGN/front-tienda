@@ -4,7 +4,6 @@ import {LibrosServiceService} from '../services/libros-service.service';
 import {ComentarioServiceService} from '../services/comentario-service.service';
 import {Libro} from "../libros/libro";
 import {Comentario} from "./coment";
-import { PercentPipe } from '@angular/common';
 
 @Component({
   selector: 'app-book',
