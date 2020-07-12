@@ -15,24 +15,17 @@ export class CarritoServiceService {
     private http: HttpClient
   ) { }
 
-  /*newCarrito(carrito: { rut: null; id_book: null; libro_total: number; comprado: boolean; cantidad_libros: number }){
-    return post(`${this.UrlEndpoint}/crearCarritoEmpty`,data);
-  }*/
 
-  newCarrito(data){
-    return this.http.post(this.urlEndpoint+ 'crearCarritoEmpty',data);
+  agregarLibroCarrito(data){
+    return this.http.post(this.urlEndpoint+ 'crearCarritoConLibro',data);
   }
 
-  obtenerCarritoNuevo():Observable<Carrito[]>{
-    return this.http.get('this.urlEndpointcarrito/lastCreated').pipe(
+  obtenerCarritos():Observable<Carrito[]>{
+    return this.http.get(this.urlEndpoint + 'carritos').pipe(
       map(response=>response as Carrito[])
     );
   }
 
-
-  agregarLibroCarrito(id_libro){
-    return this.http.post(`${this.urlEndpoint}libroAcarrito`,id_libro);
-  }
 
 
 }

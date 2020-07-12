@@ -1,3 +1,7 @@
+<!-- modal -->
+<app-modal></app-modal>
+
+
 <div *ngIf="libros">
     <div class="container">
         <div class="card">
@@ -14,15 +18,15 @@
                             <div class="stars">
                                 <h4 class="price">Valoración: <span>{{libros.rating}}</span></h4>
                             </div>
-                            <h4 class="price">Reviews: <span>{{aleatorio}}</span></h4>
                         </div>
                         <h4 class="price">Autor: {{libros.author}}</h4>
+                        <h3> Descripción</h3>
                         <p class="product-description">{{libros.description}}</p>
                         <h4 class="price">Precio: <span>${{libros.price}}</span></h4>
                         <h4 class="price">Stock: <span>{{libros.stock}}</span></h4>
                         <div class="action">
-                            <button class="add-to-cart btn btn-default" type="button">Agregar al Carrito</button>
-                            <button class="like btn btn-default" type="button"><span class="fa fa-heart"></span></button>
+                            <button class="add-to-cart btn btn-default" type="button" (click)="agregarLibro(libros.id_book)">Agregar al Carrito</button>
+                            <button class="like btn btn-default float-right" type="button"><span class="fa fa-heart"></span></button>
                         </div>
                     </div>
                 </div>
@@ -73,7 +77,7 @@
               <div class="col-sm-10">
                 <mat-card class="example-card">
                   <mat-card-header>
-                    <mat-card-title>{{comenta.comment_by}}</mat-card-title>
+                    <mat-card-title>{{comenta.commented_by}}</mat-card-title>
                   </mat-card-header>
                   <mat-card-content>
                     <p>
@@ -81,7 +85,7 @@
                     </p>
                   </mat-card-content>
                   <mat-card-footer style="text-align: right">
-                    Rating: {{comenta.rating}}
+                    <h2>Evaluación del comentador:</h2> {{comenta.rating}}
                   </mat-card-footer>
                 </mat-card>
             </div>

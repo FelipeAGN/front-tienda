@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import {HttpClient} from '@angular/common/http';
 import {Observable} from 'rxjs';
-import {Libro} from '../libros/libro';
+import {Libro} from '../libros/Libro';
 import {map} from 'rxjs/operators';
 
 @Injectable({
@@ -35,6 +35,12 @@ export class LibrosServiceService {
   }
 
   getLibroById(id: string):Observable<Libro>{
+    return this.http.get(this.anotherUrlEndpoint + 'books/' + id).pipe(
+      map(response=> response as Libro)
+    )
+  }
+
+  getLibroCarrito(id: number):Observable<Libro>{
     return this.http.get(this.anotherUrlEndpoint + 'books/' + id).pipe(
       map(response=> response as Libro)
     )

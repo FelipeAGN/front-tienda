@@ -1,3 +1,5 @@
+<app-modal></app-modal>
+
 <div class="container-fluid">
   <div class="container">
     <div class="col-lg-12">
@@ -6,9 +8,8 @@
             <h1>¡Busca aquí tu libro!</h1>
           </div>
           <mat-divider></mat-divider>
-        
       </div>
-      
+
       <div class="row">
 
         <div class="col-lg-2 col-sm-12">
@@ -25,15 +26,15 @@
               <div *ngFor="let categoria of categorias">
                 <div class="form-check">
                   <input class="form-check-input" type="radio" name="category" id="{{categoria.id_category}}" (change)="onSelectCheckbox(categoria.id_category)">
-                  <label for="{{categoria.id_category}}">{{categoria.name}}</label><br> 
-                </div>             
+                  <label for="{{categoria.id_category}}">{{categoria.name}}</label><br>
+                </div>
               </div>
             </form>
           </div>
         </div>
 
         <!--(click)="onSelectCheckbox(categoria.id_category)"-->
-        
+
         <div class="col-lg-10 col-sm-12">
           <div class="col-lg-6 mx-auto form-group">
             <input type="text" name="filterBook" class="form-control" placeholder="Buscar..." [(ngModel)]="filterBook">
@@ -49,7 +50,7 @@
                 </a>
                 <div class="card-body">
                   <div class="card-title">
-                    <a [routerLink]="['/book', libro.id_book]">
+                    <a [routerLink]="['/book', libro.id_book]" style="text-decoration: none">
                       <h2 class="text-center">{{libro.title}}</h2>
                     </a>
                   </div>
@@ -66,7 +67,7 @@
                     <div class="col-sm-12">
                       <div class="row">
                         <div class="col-lg-12">
-                          <button class="btn btn-primary colorsizeButton">Agregar a Carro</button>
+                          <button class="btn btn-primary colorsizeButton" (click)="agregarLibro(libro.id)">Agregar al Carrito</button>
                         </div>
 
                       </div>

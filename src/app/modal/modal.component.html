@@ -1,1 +1,20 @@
-<p>modal works!</p>
+<!-- MODAL -->
+<div class="abrir-modal animacion fadeIn" *ngIf="modalService.modal">
+  <div class="modal" tabindex="-1" role="dialog" style="display: block; padding: 10px">
+    <div class="modal-dialog">
+      <div class="modal-content">
+
+        <div class="modal-header">
+          <h1 class="modal-title text-center">¡Muy bien! Libro agregado a tu carrito</h1>
+          <button (click)="this.modalService.cerrarModal()" type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <mat-divider></mat-divider>
+        <div class="modal-body">
+          <p>Porfavor, revisa tu carrito para ver el libro agregado.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

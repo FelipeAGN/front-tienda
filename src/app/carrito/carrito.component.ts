@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import {Carrito} from './Carrito';
 import {CarritoServiceService} from '../services/carrito-service.service';
+import {LibrosServiceService} from '../services/libros-service.service';
+import {Libro} from '../libros/Libro';
 
 @Component({
   selector: 'app-carrito',
@@ -10,6 +12,7 @@ import {CarritoServiceService} from '../services/carrito-service.service';
 export class CarritoComponent implements OnInit {
 
   public carritosUsuario : Carrito[];
+  public libros: Libro[];
 
   public carrito ={
     rut:null,
@@ -24,18 +27,19 @@ export class CarritoComponent implements OnInit {
 
   constructor(
     private carritoService: CarritoServiceService,
+    private librosService: LibrosServiceService
   ) { }
 
 
   ngOnInit(): void {
-    this.carritoService.newCarrito(this.carrito).subscribe(
-      data=> this.handleResponse(),
-      error => this.handleError(error)
-    )
-
-    this.carritoService.obtenerCarritoNuevo().subscribe(
+    this.carritoService.obtenerCarritos().subscribe(
       carritosUsuario => this.carritosUsuario = carritosUsuario
     )
+
+    for(const carrito of this.carritosUsuario){
+     //this.libros[]= this.librosService.getLibroCarrito(carrito.id_book)
+    }
+
   }
 
   handleResponse(){

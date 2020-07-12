@@ -10,12 +10,13 @@ export class ModalServiceService {
 
   constructor() { }
 
-  abrirModal(){
-    this.modal=true;
-  }
 
   cerrarModal(){
     this.modal=false;
+  }
+
+  abrirModalLibroAgregado(){
+    this.modal=true;
   }
 
 }

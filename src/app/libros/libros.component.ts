@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import {LibrosServiceService} from '../services/libros-service.service';
-import {Libro} from "./libro";
+import {Libro} from "./Libro";
+import {ModalServiceService} from '../services/modal-service.service';
+import {CarritoServiceService} from '../services/carrito-service.service';
 
 @Component({
   selector: 'app-libros',
@@ -14,7 +16,9 @@ export class LibrosComponent implements OnInit {
   librosMejorRating: Libro[];
 
   constructor(
-    private librosService: LibrosServiceService
+    private librosService: LibrosServiceService,
+    public modalService: ModalServiceService,
+    private carritoService: CarritoServiceService
   ) { }
 
   filterBook = '';
@@ -33,5 +37,9 @@ export class LibrosComponent implements OnInit {
     )
   }
 
+  agregarLibro(id_libro){
+    this.modalService.abrirModalLibroAgregado();
+    this.carritoService.agregarLibroCarrito(id_libro);
+  }
 
 }

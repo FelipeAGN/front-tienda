@@ -1,10 +1,11 @@
 import { Component, OnInit } from '@angular/core';
-import {Libro} from '../libros/libro';
+import {Libro} from '../libros/Libro';
 import {LibrosServiceService} from '../services/libros-service.service';
 import {Cliente} from '../cliente/Cliente';
 import {ModalServiceService} from '../services/modal-service.service';
 import {ClienteServiceService} from '../services/cliente-service.service';
 import {CarritoServiceService} from '../services/carrito-service.service';
+import {Carrito} from '../carrito/Carrito';
 
 @Component({
   selector: 'app-inicio',
@@ -15,7 +16,11 @@ export class InicioComponent implements OnInit {
 
   libros: Libro[];
   librosRated: Libro[];
+  public carrito: Carrito[];
 
+  public libro={
+    id_book:null
+  }
 
   constructor(
     private librosService: LibrosServiceService,
@@ -33,40 +38,31 @@ export class InicioComponent implements OnInit {
     this.librosService.getBestRated().subscribe(
       librosRated =>this.librosRated = librosRated
     )
-  }
+
+      }
 
   agregarLibro(id_libro){
+    console.log(id_libro);
 
-    this.carritoService.agregarLibroCarrito(id_libro)
-  }
-/*
-  abrirModal(){
-    this.modalService.abrirModal();
-  }
+    this.modalService.abrirModalLibroAgregado();
+    this.setIdLibro(id_libro);
 
-  cerrarModal(){
-    this.modalService.cerrarModal();
-  }
-
-
-  onSubmit(){
-    //console.log(this.cliente);
-    this.clienteService.newUser(this.cliente).subscribe(
-      data=> this.handleResponse(),
-      error => this.errorHandler(error)
+    this.carritoService.agregarLibroCarrito(this.libro).subscribe(
+      data => this.handleResponse(data),
+      error => this.handleError(error)
     )
-
   }
 
-  public handleResponse(){
-    console.log(true);
+  handleResponse(data){
+    console.log(data)
   }
 
-  public errorHandler(error){
-    this.error = error.error.errors;
-  }*/
+  handleError(error){
+    console.log(error)
+  }
 
-
-
+  public setIdLibro(id_libro){
+    this.libro.id_book =id_libro;
+  }
 
 }

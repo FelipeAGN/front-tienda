@@ -2,8 +2,11 @@ import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router'
 import {LibrosServiceService} from '../services/libros-service.service';
 import {ComentarioServiceService} from '../services/comentario-service.service';
-import {Libro} from "../libros/libro";
-import {Comentario} from "./coment";
+import {Libro} from "../libros/Libro";
+import {Comentario} from "./Comentario";
+import {ModalServiceService} from '../services/modal-service.service';
+import {Carrito} from '../carrito/Carrito';
+import {CarritoServiceService} from '../services/carrito-service.service';
 
 @Component({
   selector: 'app-book',
@@ -13,8 +16,8 @@ import {Comentario} from "./coment";
 export class BookComponent implements OnInit {
 
   libros: Libro;
-  aleatorio = Math.floor(Math.random()*1000);
-  comentarios: Comentario[];
+  //aleatorio = Math.floor(Math.random()*1000);
+  comentarios: Comentario[]=[];
   id: string;
 
   //Objeto para enviar comentario a backend
@@ -26,15 +29,17 @@ export class BookComponent implements OnInit {
   };
 
 
-  constructor(private _route: ActivatedRoute,
-              private librosService: LibrosServiceService,
-              private comentService: ComentarioServiceService) {
-    console.log(this._route.snapshot.paramMap.get('id'));
-  }
+  constructor(
+    private _route: ActivatedRoute,
+    private librosService: LibrosServiceService,
+    private comentService: ComentarioServiceService,
+    public modalService : ModalServiceService,
+    private carritoService : CarritoServiceService
+  ){console.log(this._route.snapshot.paramMap.get('id'));}
 
   public error = {text: '',
                   rating: '',
-                  comment_by: '',
+                  commented_by: '',
                   id_book: ''
                 }
 
@@ -44,13 +49,14 @@ export class BookComponent implements OnInit {
     this.librosService.getLibroById(this.id).subscribe(
       libros=>this.libros = libros
     );
-    this.comentService.getComentById(this.id).subscribe(
+    this.comentService.getComments(this.id).subscribe(
       comentarios=>this.comentarios = comentarios
     );
 
+    /*
     console.log(this.id);
     console.log(this.libros);
-    console.log(this.comentarios);
+    console.log(this.comentarios);*/
   }
 
   onSubmit(){
@@ -61,6 +67,10 @@ export class BookComponent implements OnInit {
       error => this.handleError(error)
     )
 
+    this.comentService.getComments(this.id).subscribe(
+      comentarios =>this.comentarios = comentarios
+    )
+
   }
 
   handleResponse(data){
@@ -69,5 +79,10 @@ export class BookComponent implements OnInit {
 
   handleError(error){
     this.error = error.error.errors;
+  }
+
+  agregarLibro(id_libro){
+    this.modalService.abrirModalLibroAgregado();
+    this.carritoService.agregarLibroCarrito(id_libro);
   }
 }
