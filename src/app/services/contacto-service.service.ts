@@ -12,7 +12,7 @@ export class ContactoServiceService {
     private http: HttpClient
   ) { }
 
-  newMensajeContacto(){
-
+  newMensajeContacto(data){
+    return this.http.post(this.urlEndpoint + 'contacto', data)
   }
 }

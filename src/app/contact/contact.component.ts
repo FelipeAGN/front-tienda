@@ -16,7 +16,13 @@ export class ContactComponent implements OnInit {
   public form = {
     email: null,
     subject: null,
-    content: null
+    message: null
+  }
+
+  public error = {
+    email: '',
+    subject: '',
+    message: '',
   }
 
   ngOnInit(): void {
@@ -24,6 +30,18 @@ export class ContactComponent implements OnInit {
 
   onSubmit(){
     console.log(this.form);
+    this.contactoService.newMensajeContacto(this.form).subscribe(
+      data => this.handleResponse(data),
+      error => this.handleError(error)
+    )
+  }
+
+  handleResponse(data){
+    console.log(data)
+  }
+
+  handleError(error){
+    this.error = error.error.errors;
   }
 
 }
