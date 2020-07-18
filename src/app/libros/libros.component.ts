@@ -15,6 +15,10 @@ export class LibrosComponent implements OnInit {
   librosNuevos: Libro[];
   librosMejorRating: Libro[];
 
+  public libro={
+    id_book:null
+  }
+
   constructor(
     private librosService: LibrosServiceService,
     public modalService: ModalServiceService,
@@ -38,8 +42,27 @@ export class LibrosComponent implements OnInit {
   }
 
   agregarLibro(id_libro){
+    console.log(id_libro);
+
     this.modalService.abrirModalLibroAgregado();
-    this.carritoService.agregarLibroCarrito(id_libro);
+    this.setIdLibro(id_libro);
+
+    this.carritoService.agregarLibroCarrito(this.libro).subscribe(
+      data => this.handleResponse(data),
+      error => this.handleError(error)
+    )
+  }
+
+  public handleError(error){
+    console.log(error)
+  }
+
+  public handleResponse(data){
+    console.log(data);
+  }
+
+  public setIdLibro(id_libro){
+    this.libro.id_book =id_libro;
   }
 
 }

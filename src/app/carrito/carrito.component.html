@@ -1,3 +1,23 @@
+<div class="abrir-modal animacion fadeIn" *ngIf="this.modal">
+  <div class="modal" tabindex="-1" role="dialog" style="display: block; padding: 10px">
+    <div class="modal-dialog">
+      <div class="modal-content">
+
+        <div class="modal-header">
+          <h1 class="modal-title text-center">Hola! acción realizada con éxito...</h1>
+          <button (click)="this.cerrarModal()" type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <mat-divider></mat-divider>
+        <div class="modal-body">
+          <p>Carrito Vaciado exitosamente! <i class="fas fa-heart" style="font-size: 40px"></i></p>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
 <div class="container-fluid">
    <div class="row">
      <div class="col-sm-12">
@@ -14,7 +34,7 @@
                <h1> Total a pagar: ${{this.montoPago}}</h1>
            </div>
            <div class="col-sm-6">
-             <button class="btn btn-outline-dark float-right">Vaciar Carrito</button>
+             <button class="btn btn-outline-dark float-right" (click)="this.abrirModal()">Vaciar Carrito</button>
            </div>
 
            <table>
@@ -27,10 +47,11 @@
                <td>{{carrito.nombre_libro}}</td>
                <td>{{carrito.cantidad_libros}}</td>
                <td>{{carrito.libro_total}}</td>
-               <td><button class="btn btn-outline-primary">Aumentar 1</button></td>
-               <td><button class="btn btn-outline-secondary">Reducir 1</button></td>
-               <td><button class="btn btn-outline-danger">Quitar Libro</button></td>
+               <td><button class="btn btn-outline-primary" (click)="aumentarLibro(carrito)">Aumentar 1</button></td>
+               <td><button class="btn btn-outline-secondary" (click)="disminuirLibro(carrito)">Reducir 1</button></td>
+               <td><button class="btn btn-outline-danger" (click)="quitarCarrito(carrito)">Quitar Libro</button></td>
              </tr>
+
            </table>
           </div>
        </div>

@@ -5,7 +5,6 @@ import {ComentarioServiceService} from '../services/comentario-service.service';
 import {Libro} from "../libros/Libro";
 import {Comentario} from "./Comentario";
 import {ModalServiceService} from '../services/modal-service.service';
-import {Carrito} from '../carrito/Carrito';
 import {CarritoServiceService} from '../services/carrito-service.service';
 
 @Component({
@@ -16,18 +15,15 @@ import {CarritoServiceService} from '../services/carrito-service.service';
 export class BookComponent implements OnInit {
 
   libros: Libro;
-  //aleatorio = Math.floor(Math.random()*1000);
   comentarios: Comentario[]=[];
   id: string;
 
   //Objeto para enviar comentario a backend
+  public comment = {text: null, commented_by: null, rating: null};
 
-  public comment = {
-    text: null,
-    commented_by: null,
-    rating: null
-  };
+  public libro={id_book:null}
 
+  public error = {text: '', rating: '', commented_by: '', id_book: ''}
 
   constructor(
     private _route: ActivatedRoute,
@@ -37,11 +33,7 @@ export class BookComponent implements OnInit {
     private carritoService : CarritoServiceService
   ){console.log(this._route.snapshot.paramMap.get('id'));}
 
-  public error = {text: '',
-                  rating: '',
-                  commented_by: '',
-                  id_book: ''
-                }
+
 
   ngOnInit(): void {
     this.id = this._route.snapshot.paramMap.get('id');
@@ -53,10 +45,6 @@ export class BookComponent implements OnInit {
       comentarios=>this.comentarios = comentarios
     );
 
-    /*
-    console.log(this.id);
-    console.log(this.libros);
-    console.log(this.comentarios);*/
   }
 
   onSubmit(){
@@ -73,6 +61,8 @@ export class BookComponent implements OnInit {
 
   }
 
+
+
   handleResponse(data){
     console.log(data)
   }
@@ -82,7 +72,18 @@ export class BookComponent implements OnInit {
   }
 
   agregarLibro(id_libro){
+    console.log(id_libro);
+
     this.modalService.abrirModalLibroAgregado();
-    this.carritoService.agregarLibroCarrito(id_libro);
+    this.setIdLibro(id_libro);
+
+    this.carritoService.agregarLibroCarrito(this.libro).subscribe(
+      data => this.handleResponse(data),
+      error => this.handleError(error)
+    )
+  }
+
+  public setIdLibro(id_libro){
+    this.libro.id_book =id_libro;
   }
 }

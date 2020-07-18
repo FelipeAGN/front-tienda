@@ -63,17 +63,17 @@
                   <a [routerLink]="['/book', libro.id_book]">
                     <img src="../../assets/img/{{libro.url_image}}" alt="caratulaLibro" class="card-img-top product-img">
                   </a>
-                  <div class="card-body">
-                    <div class="card-title">
-                      <a [routerLink]="['/book', libro.id_book]" style="text-decoration: none">
-                        <h2 class="text-center" >{{libro.title}}</h2>
+                  <div class="card-body" style="max-height: 250px;">
+                    <div class="card-title" style="font-size: ">
+                      <a [routerLink]="['/book', libro.id_book]" style="text-decoration: none; font-size: 10rem;">
+                        <h3 class="text-center" >{{libro.title}}</h3>
                       </a>
                     </div>
                     <div class="row">
                       <div class="col-sm-12">
                         <table class="spacingTable">
                           <th>
-                            <tr class="filaTabla">Autor: {{libro.author}}</tr>
+                            <!--<tr class="filaTabla">Autor: {{libro.author}}</tr>-->
                             <tr class="filaTabla">Precio: <i class="fas fa-dollar-sign"></i> {{libro.price}}</tr>
                             <tr class="filaTabla">Stock: {{libro.stock}} unidades</tr>
                           </th>
@@ -121,14 +121,14 @@
                   <div class="card-body">
                     <div class="card-title">
                       <a [routerLink]="['/book', libro.id_book]" style="text-decoration: none">
-                        <h2 class="text-center">{{libro.title}}</h2>
+                        <h3 class="text-center">{{libro.title}}</h3>
                       </a>
                     </div>
                     <div class="row">
                       <div class="col-sm-12">
                         <table class="spacingTable">
                           <th>
-                            <tr class="filaTabla">Autor: {{libro.author}}</tr>
+                            <!--<tr class="filaTabla">Autor: {{libro.author}}</tr>-->
                             <tr class="filaTabla">Precio: <i class="fas fa-dollar-sign"></i> {{libro.price}}</tr>
                             <tr class="filaTabla">Stock: {{libro.stock}} unidades</tr>
                           </th>

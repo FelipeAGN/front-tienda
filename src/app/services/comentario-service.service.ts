@@ -15,11 +15,6 @@ export class ComentarioServiceService {
     private http: HttpClient,
   ){}
 
-  getComentById(id: string):Observable<Comentario[]>{
-    return this.http.get(this.urlEndpoint + 'books/' + id + '/comentario').pipe(
-      map(response=> response as Comentario[])
-    )
-  }
 
   newComentario(data, id){
     return this.http.post(this.urlEndpoint + 'books/' + id + '/comentario',data);

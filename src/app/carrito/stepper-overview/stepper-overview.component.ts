@@ -30,10 +30,8 @@ export class StepperOverviewComponent implements OnInit {
   constructor(
     private _formBuilder: FormBuilder,
     private clienteService: ClienteServiceService,
-    private carritoService: CarritoServiceService,
     public modalService: ModalServiceService
-  ) {
-  }
+  ) {}
 
   ngOnInit() {
     this.firstFormGroup = this._formBuilder.group({
@@ -58,14 +56,6 @@ export class StepperOverviewComponent implements OnInit {
   public errorHandler(error) {
     this.error = error.error.errors;
   }
-
-
-  /*pagarLibros(){
-    this.carritoService.
-  }*/
-
-
-
 
 
 }

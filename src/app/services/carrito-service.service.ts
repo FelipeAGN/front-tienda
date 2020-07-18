@@ -28,9 +28,29 @@ export class CarritoServiceService {
   }
 
   obtenerMontoAPagar():Observable<infoPago>{
-    return this.http.get(this.urlEndpoint+'totalpagar').pipe(
+    return this.http.get(this.urlEndpoint+'carrito').pipe(
       map(response=> response as infoPago)
     )
+  }
+
+  pagarCarritos(){
+    return this.http.delete(this.urlEndpoint+ 'pagar');
+  }
+
+  VaciarCarritos(){
+    return this.http.delete(this.urlEndpoint+ 'pagar');
+  }
+
+  aumentarLibro(data){
+    return this.http.put(this.urlEndpoint+'aumentarlibro',data);
+  }
+
+  disminuirLibro(data){
+    return this.http.put(this.urlEndpoint+'disminuirlibro',data);
+  }
+
+  quitarCarrito(data){
+    return this.http.delete(this.urlEndpoint+'quitarcarrito',data);
   }
 
   /*pagarCarritos(){
